@@ -44,7 +44,9 @@ router.post('/api/candidate/test',async(req,res)=>{
     if(!first_round || !second_round || !third_round) {
         return  res.status(400).json({messege:"plese provide candidate scores in all rounds(first_round,second_round,third_round"})
     }
-
+    if(first_round > 10 || second_round > 10 || third_round> 10) {
+        return  res.status(400).json({messege:"marks should not exceed 10 (first_round,second_round,third_round"})
+    }
     try {
         await Scores.findOne({candidateId:user._id},async(err,user)=>{
             if(!user){
