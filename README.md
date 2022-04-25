@@ -1,1 +1,1 @@
-# practice
+# Small Javascript Projects
